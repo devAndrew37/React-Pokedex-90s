@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+body {
+  font-family: "Press Start 2P", sans-serif;
+  background-color: #F7E39C;
+  text-align: center;
+  margin: 0;
+}
+
+.content {
+  width: 90%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+p {
+  line-height: 1.5;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #D13325;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #F7E39C;
+  margin: 0 4px;
+}
+
+nav a:hover {
+  color: black;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  background-color: #F7E39C;
+  text-align: right;
+  padding: 10px;
+  font-size: 12px;
+ }
+
+ .containerPokedex {
+  display: grid;
+  grid-template-columns: repeat(3, auto); /* 3 columns */
+  gap: 60px; /* Space between grid items */
+  padding: 0; /* Remove default padding */
+  max-width: 100%; /* Allow full width */
+  margin: 0 auto;
+  position: relative; /* Position relative for absolute children */
+  list-style-type: none; /* Remove default list styling */
+  right: 180px;
+}
+
+.containerPokedex li {
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  padding: 10px; /* Add padding around each item */
+}
+
+.soundButton {
+  font-family: "Press Start 2P", sans-serif;
+  background-color: #D13325;
+  color: #F7E39C;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 10px;
+  margin: 20px 80px;
+}
+
+.soundButton:hover {
+  background-color: #D13325;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
