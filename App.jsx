@@ -34,16 +34,18 @@ const App = () => {
       setFlag((prev) => !prev);
       randomMusic.pause();
     }, 60000);
-    // Optional: cleanup
+    // cleanup
     return () => randomMusic.pause();
   }, [flag, accepted]);
 
   if (!accepted) {
     return (
-      <div className="accept-screen" style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh"}}>
+      <div className="popup-overlay">
+      <div className="popup">
         <h1>Welcome to the React Pokedex!</h1>
         <p>Click below to enter and enable music.</p>
-        <button onClick={() => setAccepted(true)} style={{fontSize: "1.2em", padding: "1em 2em"}}>Enter</button>
+        <button onClick={() => setAccepted(true)}>Enter</button>
+      </div>
       </div>
     );
   }

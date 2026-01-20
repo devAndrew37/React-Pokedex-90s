@@ -38,6 +38,10 @@ const Pokemon = () => {
   }
  };
 
+const capitalize = (word) => {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+};
+
  useEffect(() => {
   if(pokemonName) {
     fetchPokemon();
@@ -50,12 +54,12 @@ const Pokemon = () => {
      {error && <h1>Error: {error}</h1>}
      {pokemon && (
       <div>
-        <h1 className="pokeName">{pokemon.name}</h1>
+        <h1 className="pokeName">{capitalize(pokemon.name)}</h1>
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-        <p className="pokeText">height: {pokemon.height/10} m</p>
-        <p className="pokeText">weight: {pokemon.weight/10} kg</p>
-        <p className="pokeText">abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(", ")}</p>
-        <p className="pokeText">types: {pokemon.types.map((type) => type.type.name).join(", ")}</p>
+        <p className="pokeText">Height: {pokemon.height/10} m</p>
+        <p className="pokeText">Weight: {pokemon.weight/10} kg</p>
+        <p className="pokeText">Abilities: {pokemon.abilities.map((ability) => capitalize(ability.ability.name)).join(", ")}</p>
+        <p className="pokeText">Types: {pokemon.types.map((type) => capitalize(type.type.name)).join(", ")}</p>
       </div>
      )}
     </>

@@ -29,7 +29,7 @@ const Pokedex = () => {
 
   return (
     <>
-    <h1>Pokedex</h1>
+    <h1 className="title">Pokedex</h1>
     <button className="soundButton" onClick={legacySounds}>Legacy Sounds</button>
     <button className="soundButton" onClick={latestSounds}>Latest Sounds</button>
     <div className="containerPokedex">
