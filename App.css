@@ -288,4 +288,15 @@ nav {
   list-style-type: none; 
   right: 180px;
 }
+.containerSearch {
+  display: grid;
+  grid-template-columns: repeat(3, auto); /* 3 columns */
+  gap: 60px; /* Space between grid items */
+  padding: 0; /* Remove default padding */
+  max-width: 100%; /* Allow full width */
+  margin: 0 auto;
+  position: relative; /* Position relative for absolute children */
+  list-style-type: none; /* Remove default list styling */
+  right: 180px;
+}
 }
