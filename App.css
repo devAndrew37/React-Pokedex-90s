@@ -169,7 +169,8 @@ nav {
 }
 .pikachu-home {
   width: 80%;
-  margin-top: 8px;
+  margin-top: -12px !important;
+  margin-bottom: 20px !important;
 }
 .cover-home {
   width: 71%;
@@ -272,7 +273,7 @@ nav {
   margin: 0 auto;
   position: relative; 
   list-style-type: none; 
-  right: 0vw;
+  right: 0vw !important;
 }
 }
 
