@@ -265,7 +265,7 @@ nav {
 }
 .containerSearch {
   display: grid;
-  grid-template-columns: repeat(1, auto); 
+  grid-template-columns: repeat(1, auto) !important; 
   gap: 10px !important; 
   padding: 0; 
   max-width: 100%; 
