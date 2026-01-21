@@ -14,18 +14,13 @@ const capitalize = (word) => {
   return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
-  const [imgError, setImgError] = useState(false);
-
-  // Si la imagen falla, no mostrar la carta
-  if (imgError) return null;
-
   return (
     <Link to={`/pokemon?name=${pokemon.name}`}>
       <div className="pokemon-card">
+        <p style={{fontWeight:"bolder", fontSize: "16px"}}>#{pokemon.id}</p>
         <img
           src={getPokemonSpriteUrl(pokemon.url)}
           alt={pokemon.name}
-          onError={() => setImgError(true)}
         />
         <h2>{capitalize(pokemon.name)}</h2>
       </div>

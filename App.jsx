@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Pokedex from "./Pokedex";
@@ -15,37 +15,54 @@ const NavigationBar = () => (
 );
 
 const App = () => {
-  const oak = new Audio("/oak.mp3");
-  const music1 = new Audio("/music1.mp3");
-  const music2 = new Audio("/music2.mp3");
-  const music3 = new Audio("/music3.mp3");
-  const music = [oak, music1, music2, music3];
-
-  const [flag, setFlag] = useState(false);
+  const musicFiles = ["/oak.mp3", "/music1.mp3", "/music2.mp3", "/music3.mp3"];
   const [accepted, setAccepted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [trackIndex, setTrackIndex] = useState(() => Math.floor(Math.random() * musicFiles.length));
+  const audioRef = useRef(null);
 
+  // Inicializa el objeto Audio solo una vez
+  useEffect(() => {
+    audioRef.current = new Audio(musicFiles[trackIndex]);
+    audioRef.current.volume = 0.7;
+    audioRef.current.onended = () => {
+      setTrackIndex(prev => (prev + 1) % musicFiles.length);
+    };
+    // Si está aceptado y debe sonar, reproduce automáticamente
+    if (isPlaying && accepted) {
+      audioRef.current.play();
+    }
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.onended = null;
+        audioRef.current = null;
+      }
+    };
+  }, [trackIndex, musicFiles.length, isPlaying, accepted]);
+
+  // Controla la reproducción
   useEffect(() => {
     if (!accepted) return;
-    const randomMusic = music[Math.floor(Math.random() * music.length)];
-    randomMusic.play();
-    randomMusic.loop = true;
-    randomMusic.volume = 0.7;
-    setTimeout(() => {
-      setFlag((prev) => !prev);
-      randomMusic.pause();
-    }, 60000);
-    // cleanup
-    return () => randomMusic.pause();
-  }, [flag, accepted]);
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying, accepted]);
 
   if (!accepted) {
     return (
       <div className="popup-overlay">
-      <div className="popup">
-        <h1>Welcome to the React Pokedex!</h1>
-        <p>Click below to enter and enable music.</p>
-        <button onClick={() => setAccepted(true)}>Enter</button>
-      </div>
+        <div className="popup">
+          <h1>Welcome to the React Pokedex!</h1>
+          <p>Click below to enter and enable music.</p>
+          <button onClick={() => {
+            setAccepted(true);
+            setIsPlaying(true);
+          }}>Enter</button>
+        </div>
       </div>
     );
   }
@@ -61,6 +78,12 @@ const App = () => {
           <Route path="/pokemon" element={<Pokemon />}></Route>
         </Routes>
       </div>
+      <footer>
+        <div className="footer-container">
+        {isPlaying ? <img src="/volume.png" alt="music" className="icon" onClick={() => setIsPlaying(false)}/> : <img src="/muted.png" alt="mute" className="icon" onClick={() => setIsPlaying(true)}/>}
+        <p className="p-footer">Developed by <em><a href="https://www.linkedin.com/in/andres-santilli/">Andres Santilli</a></em></p>
+        </div>
+      </footer>
     </BrowserRouter>
   );
 };

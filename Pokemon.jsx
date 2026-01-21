@@ -53,9 +53,10 @@ const capitalize = (word) => {
      {loading && <h1>Loading data...</h1>}
      {error && <h1>Error: {error}</h1>}
      {pokemon && (
-      <div>
+      <div className="pokemon-container">
+        <h4 className="pokeNumber">#{pokemon.id}</h4>
         <h1 className="pokeName">{capitalize(pokemon.name)}</h1>
-        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+        <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokemon-sprite" />
         <p className="pokeText">Height: {pokemon.height/10} m</p>
         <p className="pokeText">Weight: {pokemon.weight/10} kg</p>
         <p className="pokeText">Abilities: {pokemon.abilities.map((ability) => capitalize(ability.ability.name)).join(", ")}</p>

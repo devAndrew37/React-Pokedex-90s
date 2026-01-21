@@ -71,13 +71,32 @@ a {
 }
 
 footer {
-  position: absolute;
-  bottom: 10px;
-  right: 30px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0px;
   background-color: #F7E39C;
-  text-align: right;
-  padding: 10px;
-  font-size: 12px;
+  text-align: center;
+  padding: 0;
+  font-size: 11px;
+ }
+
+ .icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-bottom: 5px;
+ }
+
+ .p-footer {
+  margin-right: 15px;
+ }
+
+ .footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
  }
 
  .containerPokedex {
@@ -133,30 +152,140 @@ footer {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+.pikachu-home {
+  width: 100%;
+}
+
+.cover-home {
+  width: 71%;
+}
+
 @media (max-width: 600px) {                    /* modo portrait */
-  .containerPokedex {
-  display: grid;
-  grid-template-columns: repeat(1, auto); /* 3 columns */
-  gap: 60px; /* Space between grid items */
-  padding: 0; /* Remove default padding */
-  max-width: 100%; /* Allow full width */
+nav {
+  gap: 20px;
+}
+.content {
+  height: 90vh !important;
+}
+.pikachu-home {
+  width: 80%;
+  margin-top: 8px;
+}
+.cover-home {
+  width: 71%;
+}
+.title {
+  font-size: 1.6em !important;
+}
+.description {
+  font-size: 1.15em !important;
+}
+.icon {
+  width: 15px;
+  height: 15px;
+  position: relative !important;
+  right: 10px !important;
+  bottom: 2px !important;
+}
+.p-footer {
+  font-size: 0.5em;
+  position: relative !important;
+  left: 10px !important;
+  bottom: 2px !important;
+}
+.popup {
+  font-size: 0.6em !important;
+  width: 80vw !important;
+}
+.popup h1 {
+  margin-bottom: 20px !important;
+}
+.popup button{
+  font-size: 0.9em !important;
+  padding: 10px !important;
+  margin-top: 10px !important;
+}
+.soundButton {
+  padding: 10px;
+  font-size: 0.8em;
+  margin: 20px 40px;
+}
+.containerPokedex {
+  grid-template-columns: repeat(1, auto); 
+  gap: 0;
+  padding: 0; 
+  max-width: 100%; 
   margin: 0 auto;
-  position: relative; /* Position relative for absolute children */
-  list-style-type: none; /* Remove default list styling */
+  position: relative; 
+  list-style-type: none; 
+  right: 0vw;
+}
+.pokemon-card {
+    padding: 10px 50px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pokemon-container {
+  height: 100vh !important;
+}
+.pokemon-sprite {
+    max-width: 300px !important;
+    width: 200px !important;
+}
+.pokeText {
+    font-size: 1.1em !important;
+    margin-top: 60px;
+    
+}
+.pokeName {
+    font-size: 1.6em !important;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+.pokeNumber {
+    font-size: 1.2em !important;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+.top-title {
+  font-size: 1.8em !important;
+}
+.top-subtitle {
+  font-size: 1.2em !important;
+}
+.top-input {
+  font-size: 1em !important;
+  width: 80vw !important;
+}
+.pokedex-gif {
+  width: 80% !important;
+  margin-top: 40px;
+}
+.containerSearch {
+  display: grid;
+  grid-template-columns: repeat(1, auto); 
+  gap: 10px !important; 
+  padding: 0; 
+  max-width: 100%; 
+  margin: 0 auto;
+  position: relative; 
+  list-style-type: none; 
   right: 0vw;
 }
 }
 
 @media (max-width: 1200px) and (max-height: 500px) {          /* modo landscape */
-  .containerPokedex {
+.containerPokedex {
   display: grid;
-  grid-template-columns: repeat(3, auto); /* 3 columns */
-  gap: 60px; /* Space between grid items */
-  padding: 0; /* Remove default padding */
-  max-width: 100%; /* Allow full width */
+  grid-template-columns: repeat(3, auto); 
+  gap: 60px; 
+  padding: 0; 
+  max-width: 100%; 
   margin: 0 auto;
-  position: relative; /* Position relative for absolute children */
-  list-style-type: none; /* Remove default list styling */
+  position: relative; 
+  list-style-type: none; 
   right: 180px;
 }
 }

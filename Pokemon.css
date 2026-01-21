@@ -1,4 +1,4 @@
-img {
+.pokemon-sprite {
     max-width: 500px;
     margin-bottom: -20px;
     width: 300px;
@@ -14,6 +14,15 @@ img {
 
 .pokeName {
     font-size: 40px;
+    font-family: "Press Start 2P", sans-serif;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    font-weight: bolder;
+}
+
+.pokeNumber {
+    font-size: 25px;
     font-family: "Press Start 2P", sans-serif;
     text-align: center;
     margin-top: 60px;
