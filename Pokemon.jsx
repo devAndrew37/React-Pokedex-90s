@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import "./Pokemon.css";
 import { soundFlag } from "./Pokedex";
 
 
-const Pokemon = () => {
+const Pokemon = ({ savedSearch, setSavedSearch }) => {
   
  const [pokemon, setPokemon] = useState(null);
  const [loading, setLoading] = useState(true);
@@ -42,6 +42,10 @@ const capitalize = (word) => {
   return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
+const handleBack = () => {
+  window.history.back();
+};
+
  useEffect(() => {
   if(pokemonName) {
     fetchPokemon();
@@ -54,6 +58,15 @@ const capitalize = (word) => {
      {error && <h1>Error: {error}</h1>}
      {pokemon && (
       <div className="pokemon-container">
+        { savedSearch === "" ? 
+        <Link to={`/pokedex`}>
+          <img src="/back.png" alt="go back" className="back-button" />
+        </Link>
+        :
+        <Link to={`/search?prev=${savedSearch}`}>
+          <img src="/back.png" alt="go back" className="back-button" />
+        </Link>
+        }
         <h4 className="pokeNumber">#{pokemon.id}</h4>
         <h1 className="pokeName">{capitalize(pokemon.name)}</h1>
         <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokemon-sprite" />

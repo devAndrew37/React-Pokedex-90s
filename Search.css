@@ -11,14 +11,15 @@ ul li {
 
 .containerSearch {
   display: grid;
-  grid-template-columns: repeat(5, auto); /* 3 columns */
-  gap: 60px; /* Space between grid items */
-  padding: 0; /* Remove default padding */
-  max-width: 100%; /* Allow full width */
+  grid-template-columns: repeat(5, auto); 
+  text-align: center;
+  gap: 60px; 
+  padding: 0; 
+  max-width: 100%; 
   margin: 0 auto;
-  position: relative; /* Position relative for absolute children */
-  list-style-type: none; /* Remove default list styling */
-  right: 20vw;
+  position: relative; 
+  list-style-type: none; 
+  right: 460px;
   margin-bottom: 80px;
 }
 
@@ -34,6 +35,12 @@ ul li {
   font-weight: bolder;
 }
 
+.top-subtitle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
 .top-input {
   margin-top: 30px;
   margin-bottom: 40px;
@@ -43,6 +50,6 @@ ul li {
 }
 
 .pokedex-gif {
-  width: 150%;
-  margin-top: 40px;
+  width: 60%;
+  margin-top: -20px;
 }

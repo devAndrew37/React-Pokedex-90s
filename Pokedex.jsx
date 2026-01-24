@@ -4,7 +4,7 @@ import PokemonCard from "./PokemonCard";
 
 export let soundFlag = false;
 
-const Pokedex = () => {
+const Pokedex = ({ savedSearch, setSavedSearch }) => {
  
  const [pokemons, setPokemons] = useState([]);
  
@@ -17,6 +17,7 @@ const Pokedex = () => {
 
  useEffect(() => {
   fetchPokemons();
+  setSavedSearch("");
  }, []);
 
  const legacySounds = () => {

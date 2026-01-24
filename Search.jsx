@@ -1,14 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import PokemonCard from "./PokemonCard";
 import "./Search.css";
 
-
-const Search = () => {
+const Search = ({ savedSearch, setSavedSearch }) => {
 
  const [pokemons, setPokemons] = useState([]);
  const [filteredPokemons, setFilteredPokemons] = useState([]);
  const [input, setInput] = useState("");
+ const location = useLocation();
+ const query = new URLSearchParams(location.search);
+ const prevSearch = query.get("prev");
 
  const fetchPokemons = async() => {
    const query = await fetch("https://pokedex.mimo.dev/api/pokemon");
@@ -18,10 +21,15 @@ const Search = () => {
 
  const inputHandler = (event) => {
    setInput(event.target.value);
+   setSavedSearch(event.target.value);
  };
 
  useEffect(() => {
   fetchPokemons();
+  if(prevSearch) {
+    setInput(prevSearch);
+    setSavedSearch(prevSearch);
+  }
  }, []);
 
  useEffect(() => {

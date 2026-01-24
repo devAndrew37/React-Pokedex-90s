@@ -20,6 +20,7 @@ const App = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackIndex, setTrackIndex] = useState(() => Math.floor(Math.random() * musicFiles.length));
   const audioRef = useRef(null);
+  const [savedSearch, setSavedSearch] = useState("");
 
   // Inicializa el objeto Audio solo una vez
   useEffect(() => {
@@ -73,9 +74,9 @@ const App = () => {
       <div className="content">
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/pokedex" element={<Pokedex />}></Route>
-          <Route path="/search" element={<Search />}></Route>
-          <Route path="/pokemon" element={<Pokemon />}></Route>
+          <Route path="/pokedex" element={<Pokedex savedSearch={savedSearch} setSavedSearch={setSavedSearch} />}></Route>
+          <Route path="/search" element={<Search savedSearch={savedSearch} setSavedSearch={setSavedSearch} />}></Route>
+          <Route path="/pokemon" element={<Pokemon savedSearch={savedSearch} setSavedSearch={setSavedSearch} />}></Route>
         </Routes>
       </div>
       <footer>

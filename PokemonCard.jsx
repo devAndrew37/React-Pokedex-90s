@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./PokemonCard.css"
 
-
 const PokemonCard = ({ pokemon }) => {
 
 const getPokemonSpriteUrl = (url) => {
@@ -17,12 +16,13 @@ const capitalize = (word) => {
   return (
     <Link to={`/pokemon?name=${pokemon.name}`}>
       <div className="pokemon-card">
-        <p style={{fontWeight:"bolder", fontSize: "16px"}}>#{pokemon.id}</p>
+        <p className="pokemon-id">#{pokemon.id}</p>
         <img
           src={getPokemonSpriteUrl(pokemon.url)}
           alt={pokemon.name}
+          className="pokemon-sprite-card"
         />
-        <h2>{capitalize(pokemon.name)}</h2>
+        <h2 className="pokeName-card">{capitalize(pokemon.name)}</h2>
       </div>
     </Link>
   );
